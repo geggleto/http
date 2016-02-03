@@ -8,6 +8,11 @@
             "name": "Patrick Louys",
             "email": "patrick@louys.ch",
             "role": "Creator / Main Developer"
+        },
+        {
+            "name": "Glenn Eggleton",
+            "email": "geggleto@gmail.com",
+            "role": "Creator / Main Developer"
         }
     ],
     "require": {
