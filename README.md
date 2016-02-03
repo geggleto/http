@@ -1,12 +1,12 @@
 ## Http Component
 
-[![Build Status](https://travis-ci.org/PatrickLouys/http.svg?branch=master)](https://travis-ci.org/PatrickLouys/http) [![Coverage Status](https://coveralls.io/repos/PatrickLouys/http/badge.png?branch=master)](https://coveralls.io/r/PatrickLouys/http?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PatrickLouys/http/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PatrickLouys/http/?branch=master) [![Latest Stable Version](https://poser.pugx.org/patricklouys/http/v/stable.svg)](https://packagist.org/packages/patricklouys/http) [![Total Downloads](https://poser.pugx.org/patricklouys/http/downloads.svg)](https://packagist.org/packages/patricklouys/http) [![License](https://poser.pugx.org/patricklouys/http/license.svg)](https://packagist.org/packages/patricklouys/http)
+[![Build Status](https://travis-ci.org/geggleto/http.svg?branch=2.0)](https://travis-ci.org/geggleto/http) 
 
 ## Installation
 
 You can use composer to install this component. The package is: 
 ```
-patricklouys/http
+geggleto/http ^2.0
 ```
 
 ## Basic Usage
@@ -17,9 +17,9 @@ The Request class provides an object oriented wrapper around the PHP superglobal
 
 
 ```php
-use Http\HttpRequest;
+use Http\Request;
 
-$request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
+$request = new Request($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
 ```
 
 Now you can use the following methods on the `$request` object:
@@ -43,11 +43,11 @@ Please note that both GET and POST parameters are merged together and accessible
 
 ### Response
 
-The `HttpResponse` object is the data holder for the HTTP response. It has no constructor dependencies and can be instantiated with just:
+The `Response` object is the data holder for the HTTP response. It has no constructor dependencies and can be instantiated with just:
 ```php
-use Http\HttpResponse;
+use Http\Response;
 
-$response =  new HttpResponse;
+$response =  new Response;
 ```
 
 The response can be modified with following methods:
@@ -117,8 +117,8 @@ The cookie object can the be used with the `HttpResponse` methods `addCookie` an
 ```php
 <?php
 
-use Http\HttpRequest;
-use Http\HttpResponse;
+use Http\Request;
+use Http\Response;
 use Http\CookieBuilder;
 
 $loader = require_once __DIR__ . '/vendor/autoload.php';
@@ -128,8 +128,8 @@ $cookieBuilder = new CookieBuilder;
 // Disable the secure flag because this is only an example
 $cookieBuilder->setDefaultSecure(false);
 
-$request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
-$response = new HttpResponse;
+$request = new Request($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
+$response = new Response;
 
 $content = '<h1>Hello World</h1>';
 $content .= $request->getCookie('TestCookie', 'Cookie is not set.');
