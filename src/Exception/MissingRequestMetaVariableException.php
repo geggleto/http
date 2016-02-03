@@ -1,6 +1,6 @@
 <?php
 
-namespace Http;
+namespace Http\Exception;
 
 class MissingRequestMetaVariableException extends \Exception
 {
